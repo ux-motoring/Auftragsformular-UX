@@ -36,7 +36,44 @@
             box-shadow: 0 4px 6px var(--shadow-color);
             border-radius: 8px;
             position: relative;
-            overflow: visible;
+            overflow: hidden;
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                background-color: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+            }
+            .section {
+                box-shadow: none;
+                border: 1px solid var(--border-color);
+            }
+            .watermark {
+                display: block;
+                position: fixed;
+                font-size: 40px;
+                color: rgba(200, 200, 200, 0.15);
+                z-index: 1000;
+                pointer-events: none;
+                white-space: nowrap;
+                transform: rotate(-45deg);
+                width: 100%;
+                text-align: center;
+            }
+            .watermark-top {
+                top: 30%;
+                left: 0;
+            }
+            .watermark-bottom {
+                bottom: 30%;
+                right: 0;
+            }
         }
 
         .content-wrapper {
@@ -240,38 +277,37 @@
             margin: 0 5px; 
         }
 
+        .watermark {
+            display: none;
+        }
         @media print {
-            body {
-                width: 210mm;
-                height: 297mm;
-                background-color: white;
-                padding: 0;
-            }
-            body::after {
-                content: "UX-MOTORING AUFTRAGSFORMULAR";
+            .watermark {
+                display: block;
                 position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) rotate(-45deg);
-                font-size: 60px;
+                font-size: 40px;
                 color: rgba(200, 200, 200, 0.15);
                 z-index: 1000;
                 pointer-events: none;
                 white-space: nowrap;
+                transform: rotate(-45deg);
+                width: 100%;
+                text-align: center;
             }
-            .container {
-                box-shadow: none;
-                border: none;
+            .watermark-top {
+                top: 30%;
+                left: 0;
             }
-            .section {
-                box-shadow: none;
-                border: 1px solid var(--border-color);
+            .watermark-bottom {
+                bottom: 30%;
+                right: 0;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="watermark watermark-top">UX-MOTORING AUFTRAGSFORMULAR</div>
+        <div class="watermark watermark-bottom">UX-MOTORING AUFTRAGSFORMULAR</div>
         <div class="content-wrapper">
             <div class="header">
                 <div style="max-width: 500px; margin: 0 auto;">
@@ -421,5 +457,4 @@
     </div>
 </body>
 </html>
-
 
