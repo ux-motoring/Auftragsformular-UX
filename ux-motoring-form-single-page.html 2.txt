@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX-MOTORING Auftragsformular</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #ffa000;
+            --primary-light: #ffd149;
+            --primary-dark: #c67100;
+            --primary-darker: #c67100;
+            --text-color: #2c3e50;
+            --border-color: #e0e0e0;
+            --background-light: #f8f9fa;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.3;
+            color: var(--text-color);
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 5px;
+            font-size: 10px;
+            background-color: var(--background-light);
+        }
+
+        .container {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            border-radius: 8px;
+            position: relative;
+            overflow: visible;
+        }
+
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 10px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .form-column {
+            width: 48%;
+        }
+
+        .form-group {
+            margin-bottom: 6px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 2px;
+            font-size: 11px;
+            color: var(--text-color);
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="tel"], 
+        select,
+        textarea {
+            width: 100%;
+            padding: 4px 5px;
+            border: 1px solid #bbb;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 11px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, 
+        select:focus, 
+        textarea:focus {
+            outline: none;
+            border-color: #c67100;
+            box-shadow: 0 0 0 2px rgba(198, 113, 0, 0.2);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .checkbox-item {
+            width: calc(33% - 4px);
+            margin-bottom: 3px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #999;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+            margin-right: 4px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked {
+            background-color: #c67100;
+            border-color: #c67100;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 9px;
+            left: 1px;
+            top: -1px;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            font-size: 11px;
+            line-height: 1.2;
+            margin-top: 1px;
+        }
+
+        textarea {
+            min-height: 70px;
+            resize: vertical;
+        }
+
+        .signature {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .signature p {
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-size: 12px; 
+        }
+
+        .signature-line {
+            border-top: 1px solid var(--text-color);
+            width: 250px;
+        }
+
+        .bottom-section {
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .legal-text {
+            font-size: 9px;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: var(--background-light);
+            border-radius: 3px;
+            white-space: pre-wrap;
+        }
+
+        .footer {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--text-color);
+        }
+
+        .footer span {
+            margin: 0 5px; 
+        }
+
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                background-color: white;
+                padding: 0;
+            }
+            body::after {
+                content: "UX-MOTORING AUFTRAGSFORMULAR";
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-45deg);
+                font-size: 60px;
+                color: rgba(200, 200, 200, 0.15);
+                z-index: 1000;
+                pointer-events: none;
+                white-space: nowrap;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+            }
+            .section {
+                box-shadow: none;
+                border: 1px solid var(--border-color);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="header">
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div class="logo-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo1ux1-blacktext-corrected-1P01aiR1shd0NeBFDQrDoeqvqrwwWz.png" alt="UX-MOTORING Logo" class="logo">
+                    </div>
+                </div>
+            </div>
+
+            <form>
+                <div class="section">
+                    <div class="section-title">PERSÖNLICHE DATEN</div>
+                    <div class="form-row">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="anrede">ANREDE</label>
+                                <input type="text" id="anrede" name="anrede" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">NAME / FIRMA</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="strasse">STRAßE & HAUSNUMMER</label>
+                                <input type="text" id="strasse" name="strasse" required>
+                            </div>
+                        </div>
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="plz-ort">PLZ / ORT</label>
+                                <input type="text" id="plz-ort" name="plz-ort" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-MAIL</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefon">TELEFON NUMMER</label>
+                                <input type="tel" id="telefon" name="telefon" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">FAHRZEUGDATEN</div>
+                    <div class="form-row">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="marke">MARKE</label>
+                                <input type="text" id="marke" name="marke" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="model">MODEL</label>
+                                <input type="text" id="model" name="model" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="baujahr">BAUJAHR</label>
+                                <input type="text" id="baujahr" name="baujahr" required>
+                            </div>
+                        </div>
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="motor">MOTOR</label>
+                                <input type="text" id="motor" name="motor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="steuergeraet" style="display: flex; align-items: center;">STEUERGERÄT <span style="color: #666; font-size: 9px; margin-left: 5px;">(Teilenummer oder Steuergerät Nummer)</span></label>
+                                <input type="text" id="steuergeraet" name="steuergeraet" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">AUFTRAG</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="motorsteuergeraet" name="auftrag" value="motorsteuergeraet">
+                            <label for="motorsteuergeraet">Motorsteuergerät Reparatur</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="getriebesteuergeraet" name="auftrag" value="getriebesteuergeraet">
+                            <label for="getriebesteuergeraet">Getriebesteuergerät Reparatur</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="kombiinstrument" name="auftrag" value="kombiinstrument">
+                            <label for="kombiinstrument">Kombiinstrument / Tacho Reparatur</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="elv-ezs" name="auftrag" value="elv-ezs">
+                            <label for="elv-ezs">ELV / EZS Reparatur</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="steuergeraet-klonen" name="auftrag" value="steuergeraet-klonen">
+                            <label for="steuergeraet-klonen">Steuergerät klonen</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tuning" name="auftrag" value="tuning">
+                            <label for="tuning">Tuning / V-Max</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dpf-agr" name="auftrag" value="dpf-agr">
+                            <label for="dpf-agr">DPF / AGR Deaktivierung</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="wegfahrsperre" name="auftrag" value="wegfahrsperre">
+                            <label for="wegfahrsperre">Wegfahrsperre Deaktivierung</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sonstiges" name="auftrag" value="sonstiges">
+                            <label for="sonstiges">Sonstiges</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">FEHLERCODES / MESSUNGEN (z.B. P1607 oder 17150)</div>
+                    <textarea id="fehlercodes-messungen" name="fehlercodes-messungen"></textarea>
+                </div>
+
+                <div class="bottom-section">
+                    <div class="legal-text">
+        Ich stimme zu, dass mich die Firma UX-Motoring, Bataverstr. 84, 41462 Neuss, per Telefon, SMS, E-Mail oder Post über Produkte und Dienstleistungen informieren darf. Mir ist bewusst, dass ich diese Einwilligung jederzeit schriftlich oder per E-Mail an kundenservice@ux-motoring.de widerrufen kann.
+
+        Ich habe die Allgemeinen Geschäftsbedingungen (einsehbar unter ux-motoring.de/AGB) und die Datenschutzerklärung (einsehbar unter ux-motoring.de/datenschutz) gelesen und akzeptiere diese.
+
+        Ich beauftrage die Firma UX-Motoring mit einer kostenpflichtigen Fehlerdiagnose. Die Reparatur des beigefügten Geräts erfolgt nach Absprache.
+
+        Ich bin einverstanden, dass UX-Motoring vor Ablauf der Widerrufsfrist mit der Dienstleistung beginnt. Mir ist bewusst, dass ich mein Widerrufsrecht verliere, wenn der Auftrag vollständig ausgeführt wird.
+    </div>
+                    <div class="signature">
+                        <p>DATUM UND UNTERSCHRIFT</p>
+                        <div style="height: 20px;"></div>
+                        <div class="signature-line"></div>
+                    </div>
+                    <div class="footer">
+                        <span>BATAVERSTR. 84</span>
+                        <span>41462 NEUSS</span>
+                        <span>DEUTSCHLAND</span>
+                        <span>015228008212</span>
+                        <span>kundenservice@ux-motoring.de</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
