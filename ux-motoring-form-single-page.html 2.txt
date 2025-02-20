@@ -404,22 +404,23 @@
 
         Ich bin einverstanden, dass UX-Motoring vor Ablauf der Widerrufsfrist mit der Dienstleistung beginnt. Mir ist bewusst, dass ich mein Widerrufsrecht verliere, wenn der Auftrag vollständig ausgeführt wird.
     </div>
-                    <div class="signature">
-                        <p>DATUM UND UNTERSCHRIFT</p>
-                        <div style="height: 20px;"></div>
-                        <div class="signature-line"></div>
-                    </div>
-                    <div class="footer">
-                        <span>BATAVERSTR. 84</span>
-                        <span>41462 NEUSS</span>
-                        <span>DEUTSCHLAND</span>
-                        <span>015228008212</span>
-                        <span>kundenservice@ux-motoring.de</span>
-                    </div>
-                </div>
-            </form>
+                   <div class="signature">
+    <p>DATUM UND UNTERSCHRIFT</p>
+    <div style="height: 20px;"></div>
+    <div style="display: flex; justify-content: space-between;">
+        <div style="width: 45%;">
+            <div class="signature-line" style="width: 100%;"></div>
+            <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                <span style="font-size: 10px;">Datum</span>
+                <span style="font-size: 14px; font-weight: bold;">X</span>
+            </div>
+        </div>
+        <div style="width: 45%;">
+            <div class="signature-line" style="width: 100%;"></div>
+            <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                <span style="font-size: 10px;">Unterschrift</span>
+                <span style="font-size: 14px; font-weight: bold;">X</span>
+            </div>
         </div>
     </div>
-</body>
-</html>
-
+</div>
