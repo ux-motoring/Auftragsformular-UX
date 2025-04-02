@@ -162,12 +162,13 @@
         textarea {
             width: 100%;
             padding: 4px 5px;
-            border: 1px solid #bbb;
+            border: 1.5px solid #bbb;
             background-color: #f5f5f5;
             border-radius: 3px;
             box-sizing: border-box;
             font-size: 11px;
             transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         input:focus, 
@@ -197,7 +198,7 @@
             appearance: none;
             width: 14px;
             height: 14px;
-            border: 1px solid #999;
+            border: 1.5px solid #999;
             background-color: #f0f0f0;
             border-radius: 3px;
             margin-right: 4px;
@@ -238,15 +239,25 @@
         }
 
         .signature p {
-            font-weight: 500;
+            font-weight: 700;
             color: var(--text-color);
             margin-bottom: 20px;
-            font-size: 12px; 
+            font-size: 14px; 
         }
 
         .signature-line {
             border-top: 1px solid var(--text-color);
             width: 250px;
+            position: relative;
+        }
+
+        .signature-x {
+            position: absolute;
+            left: -40px;
+            top: -40px;
+            font-size: 40px;
+            font-weight: 900;
+            color: #000;
         }
 
         .bottom-section {
@@ -331,14 +342,14 @@
                                 <input type="text" id="name" name="name" required>
                             </div>
                             <div class="form-group">
-                                <label for="strasse">STRAßE & HAUSNUMMER</label>
-                                <input type="text" id="strasse" name="strasse" required>
+                                <label for="plz-ort">PLZ / ORT</label>
+                                <input type="text" id="plz-ort" name="plz-ort" required>
                             </div>
                         </div>
                         <div class="form-column">
                             <div class="form-group">
-                                <label for="plz-ort">PLZ / ORT</label>
-                                <input type="text" id="plz-ort" name="plz-ort" required>
+                                <label for="strasse">STRAßE & HAUSNUMMER</label>
+                                <input type="text" id="strasse" name="strasse" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">E-MAIL</label>
@@ -410,8 +421,8 @@
                             <label for="tuning">Tuning / V-Max</label>
                         </div>
                         <div class="checkbox-item">
-                            <input type="checkbox" id="dpf-agr" name="auftrag" value="dpf-agr">
-                            <label for="dpf-agr">DPF / AGR Deaktivierung</label>
+                            <input type="checkbox" id="abs-steuergeraet" name="auftrag" value="abs-steuergeraet">
+                            <label for="abs-steuergeraet">ABS Steuergerät Reparatur</label>
                         </div>
                         <div class="checkbox-item">
                             <input type="checkbox" id="wegfahrsperre" name="auftrag" value="wegfahrsperre">
@@ -439,10 +450,12 @@
 
         Ich bin einverstanden, dass UX-Motoring vor Ablauf der Widerrufsfrist mit der Dienstleistung beginnt. Mir ist bewusst, dass ich mein Widerrufsrecht verliere, wenn der Auftrag vollständig ausgeführt wird.
     </div>
-                    <div class="signature">
+                    <div class="signature" style="margin-left: 1cm;">
                         <p>DATUM UND UNTERSCHRIFT</p>
                         <div style="height: 20px;"></div>
-                        <div class="signature-line"></div>
+                        <div class="signature-line">
+                            <span class="signature-x">✘</span>
+                        </div>
                     </div>
                     <div class="footer">
                         <span>BATAVERSTR. 84</span>
@@ -457,6 +470,3 @@
     </div>
 </body>
 </html>
-
-
-
