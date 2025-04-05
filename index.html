@@ -45,6 +45,7 @@
                 height: 297mm;
                 background-color: white;
                 padding: 0;
+                margin: 0;
             }
             .container {
                 box-shadow: none;
@@ -73,6 +74,20 @@
             .watermark-bottom {
                 bottom: 30%;
                 right: 0;
+            }
+            /* Entfernen der Kopf- und Fußzeilen beim Drucken */
+            @page {
+                margin: 0;
+                size: A4;
+            }
+            html, body {
+                width: 210mm;
+                height: 297mm;
+            }
+            /* Firefox-spezifische Einstellungen */
+            html {
+                -moz-margin-start: 0;
+                -moz-margin-end: 0;
             }
         }
 
@@ -356,7 +371,7 @@
                                 <input type="email" id="email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="telefon">TELEFON NUMMER</label>
+                                <label for="telefon">TELEFONNUMMER</label>
                                 <input type="tel" id="telefon" name="telefon" required>
                             </div>
                         </div>
@@ -382,7 +397,7 @@
                         </div>
                         <div class="form-column">
                             <div class="form-group">
-                                <label for="motor">MOTOR</label>
+                                <label for="motor" style="display: flex; align-items: center;">MOTOR <span style="color: #666; font-size: 9px; margin-left: 5px;">(zb. 220 CDI / 3.0 TDI / o.ä)</span></label>
                                 <input type="text" id="motor" name="motor" required>
                             </div>
                             <div class="form-group">
@@ -409,6 +424,10 @@
                             <label for="kombiinstrument">Kombiinstrument / Tacho Reparatur</label>
                         </div>
                         <div class="checkbox-item">
+                            <input type="checkbox" id="abs-steuergeraet" name="auftrag" value="abs-steuergeraet">
+                            <label for="abs-steuergeraet">ABS Steuergerät Reparatur</label>
+                        </div>
+                        <div class="checkbox-item">
                             <input type="checkbox" id="elv-ezs" name="auftrag" value="elv-ezs">
                             <label for="elv-ezs">ELV / EZS Reparatur</label>
                         </div>
@@ -419,10 +438,6 @@
                         <div class="checkbox-item">
                             <input type="checkbox" id="tuning" name="auftrag" value="tuning">
                             <label for="tuning">Tuning / V-Max</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="abs-steuergeraet" name="auftrag" value="abs-steuergeraet">
-                            <label for="abs-steuergeraet">ABS Steuergerät Reparatur</label>
                         </div>
                         <div class="checkbox-item">
                             <input type="checkbox" id="wegfahrsperre" name="auftrag" value="wegfahrsperre">
