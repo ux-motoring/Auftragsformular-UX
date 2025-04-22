@@ -41,11 +41,8 @@
 
         @media print {
             body {
-                width: 210mm;
-                height: 297mm;
                 background-color: white;
                 padding: 0;
-                margin: 0;
             }
             .container {
                 box-shadow: none;
@@ -75,20 +72,7 @@
                 bottom: 30%;
                 right: 0;
             }
-            /* Entfernen der Kopf- und Fußzeilen beim Drucken */
-            @page {
-                margin: 0;
-                size: A4;
-            }
-            html, body {
-                width: 210mm;
-                height: 297mm;
-            }
-            /* Firefox-spezifische Einstellungen */
-            html {
-                -moz-margin-start: 0;
-                -moz-margin-end: 0;
-            }
+            /* Entfernt: Einstellungen für Seitenränder und feste Größen */
         }
 
         .content-wrapper {
@@ -465,7 +449,7 @@
 
         Ich bin einverstanden, dass UX-Motoring vor Ablauf der Widerrufsfrist mit der Dienstleistung beginnt. Mir ist bewusst, dass ich mein Widerrufsrecht verliere, wenn der Auftrag vollständig ausgeführt wird.
     </div>
-                    <div class="signature" style="margin-left: 1cm;">
+                    <div class="signature">
                         <p>DATUM UND UNTERSCHRIFT</p>
                         <div style="height: 20px;"></div>
                         <div class="signature-line">
