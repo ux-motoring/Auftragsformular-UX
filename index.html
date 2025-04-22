@@ -16,6 +16,7 @@
             --border-color: #e0e0e0;
             --background-light: #f8f9fa;
             --shadow-color: rgba(0, 0, 0, 0.1);
+            --scale-factor: 0.98; /* Minimaler Skalierungsfaktor */
         }
 
         body {
@@ -37,6 +38,10 @@
             border-radius: 8px;
             position: relative;
             overflow: hidden;
+            /* Minimale Skalierung des gesamten Containers */
+            transform: scale(var(--scale-factor));
+            transform-origin: top left;
+            width: calc(100% / var(--scale-factor));
         }
 
         @media print {
